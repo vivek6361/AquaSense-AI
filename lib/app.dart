@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'features/home/home_screen.dart';
+import 'features/splash/splash_screen.dart';
 
 class AquaSenseApp extends StatelessWidget {
   const AquaSenseApp({super.key});
@@ -16,7 +16,7 @@ class AquaSenseApp extends StatelessWidget {
         colorSchemeSeed: Colors.blue,
       ),
 
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
