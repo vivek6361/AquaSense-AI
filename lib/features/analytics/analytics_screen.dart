@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/cards/ai_insights_card.dart';
+import '../../widgets/cards/water_distribution_card.dart';
+import '../../widgets/cards/achievement_card.dart';
+import '../../widgets/cards/hydration_trend_card.dart';
+
 class AnalyticsScreen extends StatelessWidget {
   const AnalyticsScreen({super.key});
 
@@ -88,7 +93,7 @@ class AnalyticsScreen extends StatelessWidget {
             const Text(
               "Hydration Overview",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -120,7 +125,7 @@ class AnalyticsScreen extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 15),
+            const SizedBox(height: 12),
 
             buildCard(
               icon: Icons.favorite,
@@ -129,12 +134,12 @@ class AnalyticsScreen extends StatelessWidget {
               color: Colors.green,
             ),
 
-            const SizedBox(height: 25),
+            const SizedBox(height: 30),
 
             const Text(
               "Weekly Intake",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -164,62 +169,25 @@ class AnalyticsScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 25),
+            const SizedBox(height: 30),
 
-            const Text(
-              "AI Recommendation Statistics",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            const AIInsightsCard(),
 
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
 
-            Card(
-              elevation: 3,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.all(18),
-                child: Column(
-                  children: [
+            const WaterDistributionCard(),
 
-                    ListTile(
-                      leading: Icon(
-                        Icons.psychology,
-                        color: Colors.green,
-                      ),
-                      title: Text("Copper Water"),
-                      trailing: Text("12"),
-                    ),
+            const SizedBox(height: 30),
 
-                    Divider(),
+            const SizedBox(height: 20),
 
-                    ListTile(
-                      leading: Icon(
-                        Icons.water_drop,
-                        color: Colors.blue,
-                      ),
-                      title: Text("Mineral Water"),
-                      trailing: Text("8"),
-                    ),
+            const AchievementCard(),
 
-                    Divider(),
+            const SizedBox(height: 30),
 
-                    ListTile(
-                      leading: Icon(
-                        Icons.spa,
-                        color: Colors.orange,
-                      ),
-                      title: Text("Alkaline Water"),
-                      trailing: Text("5"),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            const SizedBox(height: 20),
+
+            const HydrationTrendCard(),
 
             const SizedBox(height: 30),
           ],

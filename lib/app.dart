@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'features/splash/splash_screen.dart';
+import 'presentation/splash/splash_screen.dart';
+import 'core/theme/app_theme.dart';
 
 class AquaSenseApp extends StatelessWidget {
   const AquaSenseApp({super.key});
@@ -11,10 +12,7 @@ class AquaSenseApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
 
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.blue,
-      ),
+     theme: AppTheme.lightTheme,
 
       home: const SplashScreen(),
     );
