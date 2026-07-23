@@ -8,7 +8,7 @@ class HydrationTrendCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
-          width: 24,
+          width: 18,
           height: height,
           decoration: BoxDecoration(
             color: Colors.blue,
@@ -16,7 +16,10 @@ class HydrationTrendCard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(day),
+        Text(
+          day,
+          style: const TextStyle(fontSize: 12),
+        ),
       ],
     );
   }
@@ -33,7 +36,6 @@ class HydrationTrendCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             const Text(
               "Hydration Trend",
               style: TextStyle(
@@ -42,21 +44,21 @@ class HydrationTrendCard extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
             SizedBox(
-              height: 180,
+              height: 170,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  buildBar("Mon", 70),
-                  buildBar("Tue", 110),
-                  buildBar("Wed", 90),
-                  buildBar("Thu", 130),
-                  buildBar("Fri", 95),
-                  buildBar("Sat", 145),
-                  buildBar("Sun", 120),
+                  buildBar("M", 70),
+                  buildBar("T", 100),
+                  buildBar("W", 80),
+                  buildBar("T", 130),
+                  buildBar("F", 90),
+                  buildBar("S", 140),
+                  buildBar("S", 110),
                 ],
               ),
             ),
