@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/activity/activity_tile.dart';
+
+import '../../widgets/cards/activity_tile.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
@@ -24,70 +25,54 @@ class HistoryScreen extends StatelessWidget {
           children: [
 
             const Text(
-              "Today",
+              "Today's Intake",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            const SizedBox(height: 15),
-
-            const ActivityTile(
-              icon: Icons.water_drop,
-              color: Colors.orange,
-              time: "08:15 AM",
-              waterType: "Copper Water",
-              quantity: "250 ml",
-              reason: "Morning Hydration",
-            ),
-
-            const ActivityTile(
-              icon: Icons.water_drop,
-              color: Colors.blue,
-              time: "01:00 PM",
-              waterType: "Mineral Water",
-              quantity: "300 ml",
-              reason: "Lunch Recommendation",
-            ),
-
-            const ActivityTile(
-              icon: Icons.water_drop,
-              color: Colors.green,
-              time: "06:30 PM",
-              waterType: "Alkaline Water",
-              quantity: "250 ml",
-              reason: "Evening Recovery",
-            ),
-
-            const SizedBox(height: 30),
+            const SizedBox(height: 6),
 
             const Text(
-              "Yesterday",
+              "1.8 L Consumed",
               style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+                color: Colors.grey,
+                fontSize: 16,
               ),
             ),
 
-            const SizedBox(height: 15),
+            const SizedBox(height: 24),
 
             const ActivityTile(
-              icon: Icons.water_drop,
-              color: Colors.orange,
-              time: "08:10 AM",
+              icon: Icons.wb_sunny,
+              iconColor: Colors.orange,
+              time: "8:15 AM",
               waterType: "Copper Water",
               quantity: "250 ml",
               reason: "Morning Hydration",
             ),
 
+            Divider(),
+
             const ActivityTile(
-              icon: Icons.water_drop,
-              color: Colors.blue,
-              time: "12:45 PM",
+              icon: Icons.restaurant,
+              iconColor: Colors.blue,
+              time: "1:10 PM",
               waterType: "Mineral Water",
               quantity: "300 ml",
-              reason: "Lunch Recommendation",
+              reason: "Lunch Hydration",
+            ),
+
+            Divider(),
+
+            const ActivityTile(
+              icon: Icons.fitness_center,
+              iconColor: Colors.green,
+              time: "6:30 PM",
+              waterType: "Alkaline Water",
+              quantity: "250 ml",
+              reason: "Workout Recovery",
             ),
           ],
         ),
