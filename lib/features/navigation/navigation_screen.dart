@@ -4,6 +4,7 @@ import '../analytics/analytics_screen.dart';
 import '../history/history_screen.dart';
 import '../home/home_screen.dart';
 import '../profile/profile_screen.dart';
+import '../device/device_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -17,10 +18,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int currentIndex = 0;
 
   final List<Widget> screens = const [
-    HomeScreen(),
-    AnalyticsScreen(),
-    HistoryScreen(),
-    ProfileScreen(),
+   HomeScreen(),
+   AnalyticsScreen(),
+   HistoryScreen(),
+   DeviceScreen(),
+   ProfileScreen(),
   ];
 
   @override
@@ -56,6 +58,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
             icon: Icon(Icons.history_outlined),
             selectedIcon: Icon(Icons.history),
             label: "History",
+          ),
+
+          NavigationDestination(
+            icon: Icon(Icons.memory_outlined),
+            selectedIcon: Icon(Icons.memory),
+            label: "Device",
           ),
 
           NavigationDestination(
