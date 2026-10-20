@@ -9,7 +9,7 @@ Build with `--dart-define=AQUASENSE_API_BASE_URL=https://YOUR_API_DOMAIN`. Relea
 ## Still requiring product or deployment setup
 
 - Password-reset and email-verification flows need an email delivery provider, token storage, templates, and backend endpoints.
-- Account deletion needs an agreed data-retention policy and verified cascade behavior before exposing a destructive control.
+- Account deletion is implemented with password confirmation. Apply the backend account-deletion migration before enabling this client against production, and obtain legal approval for the deletion/retention wording.
 - Rate limiting should be configured at the API gateway or with a shared Redis-backed limiter; an in-process limiter is not sufficient across multiple workers.
 - Database backups and restore tests must be configured for the actual PostgreSQL host.
 - Row-level database policies are not enabled; the backend currently applies authenticated user scoping in its query layer.

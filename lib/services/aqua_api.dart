@@ -68,6 +68,10 @@ class AquaApi {
   }
 
   Future<Map<String,dynamic>> me()=>_send('/auth/me',auth:true);
+  Future<void> deleteAccount(String password) async {
+    await _send('/auth/me',method:'DELETE',json:{'password':password},auth:true);
+    await _storage.delete(key:_token);
+  }
   Future<void> signOut()=>_storage.delete(key:_token);
   Future<bool> onboardingComplete() async => await _storage.read(key:_intro)=='true';
   Future<void> markOnboardingComplete()=>_storage.write(key:_intro,value:'true');
