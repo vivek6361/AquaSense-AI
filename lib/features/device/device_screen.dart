@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/common/device_action_notice.dart';
 
 import '../../widgets/cards/device_item.dart';
 
@@ -12,7 +13,7 @@ class DeviceScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Device"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -39,7 +40,7 @@ class DeviceScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      "AquaSense X1",
+                      "AQVYNTRA X1",
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -111,11 +112,11 @@ class DeviceScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () => showDeviceActionNotice(context),
                 icon: const Icon(Icons.restart_alt),
                 label: const Text("Restart Device"),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroundColor: Colors.white,
                   minimumSize: const Size.fromHeight(50),
                 ),
@@ -127,7 +128,7 @@ class DeviceScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton.icon(
-                onPressed: () {},
+                onPressed: () => showDeviceActionNotice(context),
                 icon: const Icon(Icons.health_and_safety),
                 label: const Text("Run Diagnostics"),
                 style: OutlinedButton.styleFrom(

@@ -14,7 +14,7 @@ class _StartupGateState extends State<StartupGate> {
   Widget next;
   if(!await AquaApi.instance.onboardingComplete()) next=const OnboardingScreen();
   else {
-   try {final u=await AquaApi.instance.me();next=NavigationScreen(userName:u['name'] as String? ?? 'AquaSense user');}
+   try {final u=await AquaApi.instance.me();next=NavigationScreen(userName:u['name'] as String? ?? 'AQVYNTRA user');}
    catch(_){await AquaApi.instance.signOut();next=const AuthScreen();}
   }
   if(mounted)Navigator.pushReplacement(context,MaterialPageRoute(builder:(_)=>next));

@@ -1,54 +1,41 @@
 import 'package:flutter/material.dart';
-
 import 'app_colors.dart';
-import 'app_text_styles.dart';
 
 class AppTheme {
   AppTheme._();
-
-  static ThemeData lightTheme = ThemeData(
+  static final lightTheme = ThemeData(
     useMaterial3: true,
-
     scaffoldBackgroundColor: AppColors.background,
-
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColors.primary,
-      brightness: Brightness.light,
-    ),
-
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primary,
-      foregroundColor: Colors.white,
-      centerTitle: true,
-      elevation: 0,
+      backgroundColor: AppColors.background,
+      foregroundColor: AppColors.textPrimary,
+      centerTitle: false, elevation: 0, scrolledUnderElevation: 0,
     ),
-
     cardTheme: CardThemeData(
-      color: AppColors.card,
-      elevation: 3,
+      color: Colors.white, elevation: 0, margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
+        side: const BorderSide(color: AppColors.border),
       ),
     ),
-
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
-        minimumSize: const Size(double.infinity, 55),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-      ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true, fillColor: Colors.white,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
     ),
-
-    textTheme: TextTheme(
-      headlineLarge: AppTextStyles.heading1,
-      headlineMedium: AppTextStyles.heading2,
-      titleMedium: AppTextStyles.cardTitle,
-      bodyLarge: AppTextStyles.body,
-      bodySmall: AppTextStyles.caption,
-      labelLarge: AppTextStyles.button,
+    filledButtonTheme: FilledButtonThemeData(style: FilledButton.styleFrom(
+      minimumSize: const Size(48, 52),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    )),
+    elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(
+      backgroundColor: AppColors.primary, foregroundColor: Colors.white,
+      elevation: 0, minimumSize: const Size(48, 52),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    )),
+    navigationBarTheme: const NavigationBarThemeData(
+      backgroundColor: Colors.white, indicatorColor: Color(0xFFD5F3EB),
+      height: 76,
     ),
   );
 }

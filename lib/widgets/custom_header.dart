@@ -41,7 +41,7 @@ class CustomHeader extends StatelessWidget {
 
           const Center(
             child: Text(
-              "AquaSense AI",
+              "AQVYNTRA",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

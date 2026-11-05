@@ -11,7 +11,7 @@ class ProfileScreen extends StatelessWidget {
  Future<void> _deleteAccount(BuildContext context) async {
   final password=TextEditingController();
   final confirmed=await showDialog<bool>(context:context,builder:(dialogContext)=>AlertDialog(
-   title:const Text('Delete AquaSense account?'),
+   title:const Text('Delete AQVYNTRA account?'),
    content:Column(mainAxisSize:MainAxisSize.min,children:[
     const Text('This permanently removes your account and personal records. Shared purifier records are retained without your account ownership. This cannot be undone.'),
     const SizedBox(height:12),
@@ -40,15 +40,15 @@ class ProfileScreen extends StatelessWidget {
 
  @override Widget build(BuildContext context)=>Scaffold(
   backgroundColor:const Color(0xffF5F9FF),
-  appBar:AppBar(title:const Text('Profile'),centerTitle:true,backgroundColor:Colors.blue,foregroundColor:Colors.white),
+  appBar:AppBar(title:const Text('Profile'),centerTitle:true,backgroundColor:Theme.of(context).colorScheme.primary,foregroundColor:Colors.white),
   body:ListView(padding:const EdgeInsets.all(16),children:[
    const CircleAvatar(radius:42,backgroundColor:Colors.blue,child:Icon(Icons.person,color:Colors.white,size:42)),
    const SizedBox(height:12),Text(userName,textAlign:TextAlign.center,style:const TextStyle(fontSize:22,fontWeight:FontWeight.bold)),
-   const SizedBox(height:5),const Text('AquaSense account',textAlign:TextAlign.center,style:TextStyle(color:Colors.grey)),
+   const SizedBox(height:5),const Text('AQVYNTRA account',textAlign:TextAlign.center,style:TextStyle(color:Colors.grey)),
    const SizedBox(height:24),
    Card(child:Column(children:const [
     ListTile(leading:Icon(Icons.water_drop),title:Text('Daily Goal'),subtitle:Text('Manage your hydration profile')),
-    Divider(height:1),ListTile(leading:Icon(Icons.router),title:Text('Connected Device'),subtitle:Text('Manage your AquaSense device')),
+    Divider(height:1),ListTile(leading:Icon(Icons.router),title:Text('Connected Device'),subtitle:Text('Manage your AQVYNTRA device')),
    ])),
    const SizedBox(height:16),
    Card(child:Column(children:[
@@ -61,6 +61,6 @@ class ProfileScreen extends StatelessWidget {
    const SizedBox(height:8),
    TextButton.icon(onPressed:()=>_deleteAccount(context),icon:const Icon(Icons.delete_outline,color:Colors.red),label:const Text('Delete account',style:TextStyle(color:Colors.red))),
    const SizedBox(height:18),
-   const Text('AquaSense AI • readings and recommendations are informational.',textAlign:TextAlign.center,style:TextStyle(color:Colors.black54,fontSize:12)),
+   const Text('AQVYNTRA • readings and recommendations are informational.',textAlign:TextAlign.center,style:TextStyle(color:Colors.black54,fontSize:12)),
   ]));
 }

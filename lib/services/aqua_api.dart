@@ -48,11 +48,11 @@ class AquaApi {
       }
       return decoded;
     } on SocketException {
-      throw const AquaApiException('Could not reach AquaSense. Check your connection and try again.');
+      throw const AquaApiException('Could not reach AQVYNTRA. Check your connection and try again.');
     } on FormatException {
-      throw const AquaApiException('AquaSense returned an unexpected response.');
+      throw const AquaApiException('AQVYNTRA returned an unexpected response.');
     } on HttpException {
-      throw const AquaApiException('AquaSense could not complete the request. Try again.');
+      throw const AquaApiException('AQVYNTRA could not complete the request. Try again.');
     }
   }
 

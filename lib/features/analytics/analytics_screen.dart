@@ -79,7 +79,7 @@ class AnalyticsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Analytics"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
       ),
 

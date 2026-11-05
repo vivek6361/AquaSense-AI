@@ -1,30 +1,37 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:aquasense_flutter/main.dart';
+import 'package:aquasense_flutter/core/theme/app_theme.dart';
+import 'package:aquasense_flutter/features/navigation/navigation_screen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Dashboard uses signed-in name and shortcuts switch tabs', (tester) async {
+    await tester.pumpWidget(MaterialApp(theme: AppTheme.lightTheme,
+      home: const NavigationScreen(userName: 'Test user')));
+    expect(find.text('Test user'), findsOneWidget);
+    expect(find.text('AQVYNTRA'), findsOneWidget);
+    await tester.ensureVisible(find.widgetWithText(ActionChip, 'Device'));
+    await tester.tap(find.widgetWithText(ActionChip, 'Device'));
+    await tester.pumpAndSettle();
+    expect(find.text('AQVYNTRA X1'), findsOneWidget);
+    await tester.ensureVisible(find.text('Restart Device'));
+    await tester.tap(find.text('Restart Device'));
+    await tester.pumpAndSettle();
+    expect(find.text('Device connection needed'), findsOneWidget);
+    await tester.tap(find.text('Got it'));
+    await tester.pumpAndSettle();
+    expect(find.text('Device connection needed'), findsNothing);
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Wide layouts retain all five destinations', (tester) async {
+    tester.view.physicalSize = const Size(1200, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(MaterialApp(theme: AppTheme.lightTheme,
+      home: const NavigationScreen(userName: 'Test user')));
+    expect(find.byType(NavigationRail), findsOneWidget);
+    await tester.tap(find.descendant(of: find.byType(NavigationRail), matching: find.text('Profile')));
+    await tester.pumpAndSettle();
+    expect(find.text('Sign out'), findsOneWidget);
   });
 }
