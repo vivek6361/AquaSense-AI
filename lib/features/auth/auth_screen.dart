@@ -46,5 +46,5 @@ class _AuthScreenState extends State<AuthScreen> {
     TextButton(onPressed:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const LegalScreen(page:LegalPage.terms))),child:const Text('Terms')),
    ]),
    const Text('Password reset and email verification need an email delivery provider before they can be enabled.',textAlign:TextAlign.center,style:TextStyle(fontSize:12,color:Colors.black54)),
-  ]))))));
+  ])))))));
 }
