@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/device_action_notice.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
@@ -33,10 +34,10 @@ class AIRecommendationCard extends StatelessWidget {
                   color: AppColors.primary,
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  "AI Recommendation",
+                Expanded(child: Text(
+                  "Sample recommendation",
                   style: AppTextStyles.cardTitle,
-                ),
+                )),
               ],
             ),
 
@@ -88,7 +89,7 @@ class AIRecommendationCard extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () => showDeviceActionNotice(context),
 
                 icon: const Icon(Icons.local_drink),
 

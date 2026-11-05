@@ -13,7 +13,7 @@ class HistoryScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Activity"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
       ),
 

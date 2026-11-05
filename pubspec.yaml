@@ -1,5 +1,5 @@
 name: aquasense_flutter
-description: "AquaSense AI mobile app."
+description: "AQVYNTRA by ZEQTRION — water and hydration companion."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -22,7 +22,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/images/
-    - assets/icons/
-    - assets/animations/
