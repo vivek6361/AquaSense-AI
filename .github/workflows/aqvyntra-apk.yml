@@ -27,9 +27,15 @@ jobs:
         run: flutter test
       - name: Build preview with previous backend URL
         run: flutter build apk --debug --dart-define=AQUASENSE_API_BASE_URL=https://aquasense-ai.duckdns.org
+      - name: Verify separate app identity
+        run: |
+          AAPT=$(find "$ANDROID_HOME/build-tools" -name aapt -type f | sort -V | tail -1)
+          "$AAPT" dump badging build/app/outputs/flutter-apk/app-debug.apk > apk-identity.txt
+          grep "package: name='com.zeqtrion.aqvyntra'" apk-identity.txt
+          grep "application-label:'AQVYNTRA'" apk-identity.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: AQVYNTRA-preview-apk
+          name: AQVYNTRA-standalone-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
           if-no-files-found: error
           retention-days: 14

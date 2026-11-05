@@ -1,4 +1,4 @@
-package com.example.aquasense_flutter
+package com.zeqtrion.aqvyntra
 
 import io.flutter.embedding.android.FlutterActivity
 
