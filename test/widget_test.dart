@@ -9,7 +9,7 @@ void main() {
       home: const NavigationScreen(userName: 'Test user')));
     expect(find.text('Test user'), findsOneWidget);
     expect(find.text('AQVYNTRA'), findsOneWidget);
-    await tester.ensureVisible(find.widgetWithText(ActionChip, 'Device'));
+    await tester.scrollUntilVisible(find.widgetWithText(ActionChip, 'Device'), 300, scrollable: find.byType(Scrollable).first);
     await tester.tap(find.widgetWithText(ActionChip, 'Device'));
     await tester.pumpAndSettle();
     expect(find.text('AQVYNTRA X1'), findsOneWidget);
